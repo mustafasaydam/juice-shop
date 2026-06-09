@@ -22,7 +22,7 @@ export function likeProductReviews () {
     }
 
     try {
-      const review = await db.reviewsCollection.findOne({ _id: id })
+      const review = await db.reviewsCollection.findOne({ _id: { $eq: id } })
       if (!review) {
         return res.status(404).json({ error: 'Not found' })
       }
